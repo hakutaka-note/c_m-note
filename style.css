@@ -1,0 +1,70 @@
+@layer reset, base, layout, components, utilities;
+/* 土台、枠踏み、部品、上書き */
+
+@layer reset {
+  /* box-sizingをここで一括設定 */
+  :where(*) {
+    box-sizing: border-box;
+  }
+
+  /* 余白のリセット */
+  :where(body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure) {
+    margin: 0;
+    padding: 0;
+  }
+
+  :where(ul, ol) {
+    list-style: none;
+  }
+
+  /* 画像の突き抜け防止（追加推奨） */
+  :where(img, svg, video) {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+@layer base {
+  :root {
+  --color-black: #1f2937; /* 文字色 */
+  --color-white: #f8f9fb; /* 背景色 */
+  --color-white2: #f9f9f9; /* 白系 上部メニュー背景 */
+  --color-blue: #3344ff; /* 青系 リンク */
+  --color-blue2: #0066ff; /* 青系2 リンク */
+
+  --color-brown: #994c4c; /* 茶色 タイトル */
+  --color-yellow: #e6b34c; /* 黄色 タイトルホバー */
+  --color-gray: #888888; /* グレー 枠 */
+  --color-orange: #ff6600; /* オレンジ アンダーラインなど */
+  --color-purple: #ff00ff; /* 紫系 アンダーラインなど */
+  --color-green-100: #73ce91; /* 緑系 標準 */
+  --color-green-200: #00ff00; /* 緑系 アンダーラインなど */
+  --color-green-300: #009933; /* 緑系 追記ボックスなど */
+  --color-txt: var(--color-black); /* テキスト色 */
+  --color-bg: var(--color-white); /* 背景色 */
+  --color-action: var(--color-blue); /* リンクなど */
+  --action-hover: var(--color-green-100); /* ホバー */
+  --color-primary: var(--color-green-100); /* ポイント用 */
+  --color-box: var(--color-white); /* box枠色 */
+  --color-border: var(--color-gray); /* ボーダー色 */
+  --base-space: 8px;                   /* 基本 */
+  --sp-1: var(--base-space);           /* 8px */
+  --sp-2: calc(var(--base-space) * 2); /* 16px */
+  --sp-3: calc(var(--base-space) * 4); /* 32px */
+}
+  
+  html {
+    /* box-sizingはresetで完結させるなら不要 */
+    font-family: sans-serif;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%; /* モバイルでの文字サイズ自動調整防止 */
+  }
+
+@media (min-width: 768px) {
+  body {
+    padding-top: 40px; /* ヘッダー50px + 余裕10px 下げる */
+    background-color: #e6eae6;			/* 背景色 フロスティホワイト */
+  }
+}
+
+}
