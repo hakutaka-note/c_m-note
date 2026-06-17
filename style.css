@@ -27,11 +27,9 @@
 @layer base {
   :root {
   --color-black: #1f2937; /* 文字色 */
-  --color-white: #f8f9fb; /* 背景色 */
-  --color-white2: #f9f9f9; /* 白系 上部メニュー背景 */
-  --color-blue: #3344ff; /* 青系 リンク */
-  --color-blue2: #0066ff; /* 青系2 リンク */
-
+  --color-white: #e6eae6; /* 背景色 フロスティホワイト */
+  --color-blue: #3f51f5; /* 青系 リンク */
+  --color-blue-dark: #2433d9;  /* 青系 リンクホバー */
   --color-brown: #994c4c; /* 茶色 タイトル */
   --color-yellow: #e6b34c; /* 黄色 タイトルホバー */
   --color-gray: #888888; /* グレー 枠 */
@@ -43,7 +41,7 @@
   --color-txt: var(--color-black); /* テキスト色 */
   --color-bg: var(--color-white); /* 背景色 */
   --color-action: var(--color-blue); /* リンクなど */
-  --action-hover: var(--color-green-100); /* ホバー */
+  --action-hover: var(--color-blue-dark); /* ホバー */
   --color-primary: var(--color-green-100); /* ポイント用 */
   --color-box: var(--color-white); /* box枠色 */
   --color-border: var(--color-gray); /* ボーダー色 */
@@ -60,11 +58,25 @@
     -webkit-text-size-adjust: 100%; /* モバイルでの文字サイズ自動調整防止 */
   }
 
+  body {
+    color: var(--color-txt);
+    background-color: var(--color-bg);
+  }
+
 @media (min-width: 768px) {
   body {
     padding-top: 40px; /* ヘッダー50px + 余裕10px 下げる */
-    background-color: #e6eae6;			/* 背景色 フロスティホワイト */
   }
+}
+
+  a {
+    color: var(--color-action);
+    text-decoration: underline; /* アクセシビリティ的に下線は推奨 */
+    transition: color 0.2s ease; /* 滑らかに変化させる */
+}
+
+  a:hover {
+    color: var(--action-hover);
 }
 
 }
